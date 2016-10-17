@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Article from './Article';
 
 class App extends Component {
 
@@ -11,23 +12,25 @@ class App extends Component {
 
   componentDidMount() {
     $.ajax({
-      url: "https://newsapi.org/v1/articles?source=cnn&apiKey=74908cf8084d4764841ed6377cbd6bdb"
+      method: 'GET',
+      url: "api/articles"
     })
     .done(data => {
-      this.setState({ articleArray: data.articles });
+      this.setState({ articleArray: data });
     });
   }
 
   render() {
     let articles = this.state.articleArray.map(article => {
       return(
-        <div>
-          <li>
-            <h3><a href={article.url}>{article.title}</a></h3>
-            Author: {article.author}<br />
-            Description: {article.description}<br />
-          </li>
-        </div>
+        <Article
+          title={article.title}
+          author={article.author}
+          description={article.description}
+          url={article.url}
+          urlToImage={article.urlToImage}
+          publishedAt={article.publishedAt}
+        />
       )
     })
     return (
