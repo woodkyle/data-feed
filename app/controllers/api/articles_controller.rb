@@ -3,6 +3,11 @@ class Api::ArticlesController < ApiController
 
   def index
     @sources = Source.all
+    respond_to do |format|
+      format.json do
+        render json: @sources
+      end
+    end
   end
 
   def create
