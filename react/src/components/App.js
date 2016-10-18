@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Article from './Article';
 import MenuBar from './MenuBar';
-import MenuButton from './MenuButton';
 
 class App extends Component {
 
@@ -9,19 +8,14 @@ class App extends Component {
     super(props);
     this.state = {
       articleArray: [],
-      sourceKey: "cnn"
+      sourceKey: "",
+      buttonTitles: ["cnn", "bbc-news", "espn"]
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    // $.ajax({
-    //   method: 'GET',
-    //   url: "api/articles"
-    // })
-    // .done(data => {
-    //   this.setState({ articleArray: data });
-    // });
+
   }
 
   handleClick(sourceTitle) {
@@ -49,21 +43,12 @@ class App extends Component {
         />
       )
     })
-    let buttonTitles = ["cnn", "bbc-news", "espn"];
-    let buttons = buttonTitles.map(buttonTitle => {
-      let handleClick = () => this.handleClick(buttonTitle);
-      return(
-        <MenuButton
-          key={buttonTitle}
-          id={buttonTitle}
-          handleClick={handleClick}
-          buttonTitle={buttonTitle}
-        />
-      )
-    })
     return (
       <div>
-        {buttons}
+        <MenuBar
+          buttonTitles = {this.state.buttonTitles}
+          handleClick = {this.handleClick}
+        />
         {articles}
       </div>
     )
