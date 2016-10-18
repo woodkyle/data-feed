@@ -4,13 +4,13 @@ import MenuButton from './MenuButton';
 const MenuBar = props => {
   let sourcesArray = props.sourcesArray;
   let buttons = sourcesArray.map(button => {
-    let handleClick = () => props.handleClick(button["apiKey"]);
+    let handleClick = () => props.handleClick(button.apiKey);
     return(
       <MenuButton
-        key={button["name"]}
-        id={button["name"]}
+        key={button.name}
+        id={button.name}
         handleClick={handleClick}
-        buttonTitle={button["name"]}
+        buttonTitle={button.name}
       />
     )
   })
