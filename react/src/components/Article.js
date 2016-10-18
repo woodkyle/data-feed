@@ -9,7 +9,7 @@ const Article = props => {
     color: "#CAC9C9",
     display: "inline-block",
     fontFamily: "monospace",
-    fontSize: "16",
+    fontSize: 16,
     textAlign: "center",
     width: 350,
     height: 450
