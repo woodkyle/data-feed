@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   protected
 
-  end authorize_user
+  def authorize_user
     if !user_signed_in? || !current_user.admin?
       redirect_to root_path
       flash[:notice] = "You do not have access to this page."
