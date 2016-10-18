@@ -8,20 +8,26 @@ class App extends Component {
     super(props);
     this.state = {
       articleArray: [],
-      sourceKey: "",
-      buttonTitles: ["cnn", "bbc-news", "espn"]
+      sourceArray: [],
+      sourceKey: ""
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-
+    $.ajax({
+      method: 'GET',
+      url: 'api/articles'
+    })
+    .done(data => {
+      this.setState({ sourceArray: data })
+    });
   }
 
   handleClick(sourceTitle) {
     $.ajax({
       method: 'POST',
-      url: "api/articles",
+      url: 'api/articles',
       data: {sourceTitle},
       success: function(data) {
         this.setState({ sourceKey: sourceTitle })
@@ -46,7 +52,7 @@ class App extends Component {
     return (
       <div>
         <MenuBar
-          buttonTitles = {this.state.buttonTitles}
+          sourcesArray = {this.state.sourceArray}
           handleClick = {this.handleClick}
         />
         {articles}
