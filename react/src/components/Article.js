@@ -4,11 +4,12 @@ const Article = props => {
 
   let articleStyle = {
     padding: 10,
+    margintop: 20,
     margin: 20,
     backgroundColor: '#363636',
     color: "#CAC9C9",
     display: "inline-block",
-    fontFamily: "monospace",
+    fontFamily: 'Roboto',
     fontSize: 16,
     textAlign: "center",
     width: 350,
