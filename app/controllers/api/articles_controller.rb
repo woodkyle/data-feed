@@ -1,6 +1,8 @@
 require 'pry'
 class Api::ArticlesController < ApiController
 
+  # business, entertainment, gaming, general, music, science-and-nature, sport, technology
+
   def index
     @sources = Source.all
     respond_to do |format|
