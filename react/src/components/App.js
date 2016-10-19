@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Article from './Article';
-import MenuBar from './MenuBar';
 import DropdownBar from './DropdownBar';
 
 class App extends Component {
@@ -10,6 +9,7 @@ class App extends Component {
     this.state = {
       articleArray: [],
       sourceArray: [],
+      categories: [],
       sourceKey: ""
     };
     this.handleClick = this.handleClick.bind(this);
@@ -22,6 +22,13 @@ class App extends Component {
     })
     .done(data => {
       this.setState({ sourceArray: data })
+    });
+    $.ajax({
+      method: 'GET',
+      url: 'api/sources'
+    })
+    .done(data => {
+      this.setState({ categories: data })
     });
   }
 
@@ -52,10 +59,10 @@ class App extends Component {
     })
     return (
       <div>
-        <DropdownBar />
-        <MenuBar
-          sourcesArray = {this.state.sourceArray}
-          handleClick = {this.handleClick}
+        <DropdownBar
+          categories={this.state.categories}
+          sourceArray={this.state.sourceArray}
+          handleClick={this.handleClick}
         />
         {articles}
       </div>
