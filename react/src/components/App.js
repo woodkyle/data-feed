@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Article from './Article';
 import MenuBar from './MenuBar';
+import DropdownBar from './DropdownBar';
 
 class App extends Component {
 
@@ -51,6 +52,7 @@ class App extends Component {
     })
     return (
       <div>
+        <DropdownBar />
         <MenuBar
           sourcesArray = {this.state.sourceArray}
           handleClick = {this.handleClick}
