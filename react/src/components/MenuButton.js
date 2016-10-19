@@ -1,8 +1,9 @@
 import React from 'react';
 
 const MenuButton = props => {
+
   return(
-    <button onClick={props.handleClick}>{props.buttonTitle}</button>
+    <img src={props.logoUrl} width={150} height={50} onClick={props.handleClick} />
   )
 
 }

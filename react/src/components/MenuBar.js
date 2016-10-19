@@ -11,6 +11,7 @@ const MenuBar = props => {
         id={button.name}
         handleClick={handleClick}
         buttonTitle={button.name}
+        logoUrl={button.logoUrl}
       />
     )
   })
