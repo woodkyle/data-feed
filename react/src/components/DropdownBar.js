@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, ButtonGroup, DropdownButton, MenuItem, Popover, OverlayTrigger } from 'react-bootstrap';
 
-class DropdownBar extends Component {
+export default class DropdownBar extends Component {
 
   constructor(props){
     super(props);
@@ -42,5 +42,3 @@ class DropdownBar extends Component {
     )
   }
 }
-
-export default DropdownBar;
