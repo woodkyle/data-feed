@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonToolbar } from 'react-bootstrap';
-import { ButtonGroup } from 'react-bootstrap';
-import { DropdownButton } from 'react-bootstrap';
-import { MenuItem } from 'react-bootstrap';
+import { ButtonToolbar, ButtonGroup, DropdownButton, MenuItem, Popover, OverlayTrigger } from 'react-bootstrap';
 
 class DropdownBar extends Component {
 
@@ -13,10 +10,17 @@ class DropdownBar extends Component {
   render() {
     let dropMenus = this.props.categories.map( category => {
       let menuItems = this.props.sourceArray.map( s => {
+        let popover = (
+          <Popover id="popover-hover" title={s.name}>
+            {s.description}
+          </Popover>
+        )
         if (s.category === category) {
           let handleClick = () => this.props.handleClick(s.apiKey)
           return (
-            <MenuItem onClick={handleClick}>{s.name}</MenuItem>
+            <OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={popover}>
+              <MenuItem onClick={handleClick}>{s.name}</MenuItem>
+            </OverlayTrigger>
           )
         }
       })
