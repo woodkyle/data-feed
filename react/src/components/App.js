@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Article from './Article';
+import ArticleCarousel from './ArticleCarousel';
 import DropdownBar from './DropdownBar';
 import ArticleThumbnails from './ArticleThumbnails';
+import { PageHeader } from 'react-bootstrap';
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(props){
     super(props);
@@ -46,17 +47,17 @@ class App extends Component {
   }
 
   render() {
-    let articles = <Article
-      articleArray={this.state.articleArray}
-    />
     return (
       <div>
+        <PageHeader><center>DATA FEED NEWS</center></PageHeader><br />
         <DropdownBar
           categories={this.state.categories}
           sourceArray={this.state.sourceArray}
           handleClick={this.handleClick}
-        /><br />
-        {articles}
+        />
+        <ArticleCarousel
+          articleArray={this.state.articleArray}
+        />
         <ArticleThumbnails
           articleArray={this.state.articleArray}
         /><br />
@@ -66,5 +67,3 @@ class App extends Component {
   }
 
 }
-
-export default App;

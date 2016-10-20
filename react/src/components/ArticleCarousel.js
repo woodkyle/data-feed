@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Carousel, Image } from 'react-bootstrap';
 
-export default class Article extends Component {
+export default class ArticleCarousel extends Component {
 
   constructor(props){
     super(props);
