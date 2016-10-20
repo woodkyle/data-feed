@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Article from './Article';
 import DropdownBar from './DropdownBar';
+import ArticleThumbnails from './ArticleThumbnails';
 
 class App extends Component {
 
@@ -56,6 +57,10 @@ class App extends Component {
           handleClick={this.handleClick}
         /><br />
         {articles}
+        <ArticleThumbnails
+          articleArray={this.state.articleArray}
+        /><br />
+        Powered By: <a href="https://newsapi.org">News API</a>
       </div>
     )
   }
