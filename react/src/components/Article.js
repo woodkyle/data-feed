@@ -13,7 +13,7 @@ class Article extends Component {
         <Carousel.Item>
           <Image src={article.urlToImage} responsive />
           <Carousel.Caption>
-            <h3>{article.title}</h3>
+            <a href={article.url} target="_blank"><h3>{article.title}</h3></a>
             <p>{article.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
