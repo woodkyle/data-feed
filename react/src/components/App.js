@@ -45,25 +45,16 @@ class App extends Component {
   }
 
   render() {
-    let articles = this.state.articleArray.map(article => {
-      return(
-        <Article
-          title={article.title}
-          author={article.author}
-          description={article.description}
-          url={article.url}
-          urlToImage={article.urlToImage}
-          publishedAt={article.publishedAt}
-        />
-      )
-    })
+    let articles = <Article
+      articleArray={this.state.articleArray}
+    />
     return (
       <div>
         <DropdownBar
           categories={this.state.categories}
           sourceArray={this.state.sourceArray}
           handleClick={this.handleClick}
-        />
+        /><br />
         {articles}
       </div>
     )

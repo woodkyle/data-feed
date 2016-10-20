@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Carousel, Image } from 'react-bootstrap';
 
-const Article = props => {
+class Article extends Component {
 
-  let articleStyle = {
-    padding: 10,
-    margintop: 20,
-    margin: 20,
-    backgroundColor: '#363636',
-    color: "#CAC9C9",
-    display: "inline-block",
-    fontFamily: 'Roboto',
-    fontSize: 16,
-    textAlign: "center",
-    width: 350,
-    height: 450
+  constructor(props){
+    super(props);
   }
 
-  return (
-    <div style={articleStyle}>
-      <a href={props.url}>{props.title}</a><br />
-      Author: {props.author}<br />
-      Description: {props.description}<br />
-      <img src={props.urlToImage} width={300} height={200} /><br />
-    </div>
-  )
+  render(){
+    let articles = this.props.articleArray.map(article => {
+      return(
+        <Carousel.Item>
+          <Image src={article.urlToImage} responsive />
+          <Carousel.Caption>
+            <h3>{article.title}</h3>
+            <p>{article.description}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      )
+    })
+    return(
+      <Carousel>
+        {articles}
+      </Carousel>
+    )
+  }
 
 }
 
