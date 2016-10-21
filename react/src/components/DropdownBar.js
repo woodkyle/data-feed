@@ -37,7 +37,6 @@ export default class DropdownBar extends Component {
             {dropMenus}
           </ButtonGroup>
         </ButtonToolbar>
-        <br />
       </div>
     )
   }
