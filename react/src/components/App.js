@@ -3,7 +3,6 @@ import ArticleCarousel from './ArticleCarousel';
 import DropdownBar from './DropdownBar';
 import ArticleThumbnails from './ArticleThumbnails';
 import { PageHeader, Tab, Tabs } from 'react-bootstrap';
-import TabBar from './TabBar';
 
 export default class App extends Component {
 
