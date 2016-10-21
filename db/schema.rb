@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161017235546) do
     t.string "description", null: false
     t.string "category",    null: false
     t.string "logoUrl",     null: false
+    t.string "url",         null: false
   end
 
   create_table "users", force: :cascade do |t|

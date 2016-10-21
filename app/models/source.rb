@@ -4,4 +4,5 @@ class Source < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true
   validates :logoUrl, presence: true
+  validates :url, presence: true
 end
