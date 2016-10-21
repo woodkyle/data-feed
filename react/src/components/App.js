@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ArticleCarousel from './ArticleCarousel';
 import DropdownBar from './DropdownBar';
 import ArticleThumbnails from './ArticleThumbnails';
-import { PageHeader } from 'react-bootstrap';
+import { PageHeader, Tab, Tabs } from 'react-bootstrap';
+import TabBar from './TabBar';
 
 export default class App extends Component {
 
@@ -55,12 +56,18 @@ export default class App extends Component {
           sourceArray={this.state.sourceArray}
           handleClick={this.handleClick}
         />
-        <ArticleCarousel
-          articleArray={this.state.articleArray}
-        />
-        <ArticleThumbnails
-          articleArray={this.state.articleArray}
-        /><br />
+        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" justified>
+          <Tab eventKey={1} title="Carousel">
+            <ArticleCarousel
+              articleArray={this.state.articleArray}
+            />
+          </Tab>
+          <Tab eventKey={2} title="List">
+            <ArticleThumbnails
+              articleArray={this.state.articleArray}
+            />
+          </Tab>
+        </Tabs>
         Powered By: <a href="https://newsapi.org">News API</a>
       </div>
     )
