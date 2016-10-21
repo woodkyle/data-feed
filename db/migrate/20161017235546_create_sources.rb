@@ -6,6 +6,7 @@ class CreateSources < ActiveRecord::Migration[5.0]
       t.string :description, null: false
       t.string :category, null: false
       t.string :logoUrl, null: false
+      t.string :url, null: false
     end
   end
 end
