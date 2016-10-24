@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import ArticleCarousel from './ArticleCarousel';
-import DropdownBar from './DropdownBar';
-import ArticleThumbnails from './ArticleThumbnails';
-import { PageHeader, Tab, Tabs } from 'react-bootstrap';
+import PageView from './PageView'
 
 export default class App extends Component {
 
@@ -46,39 +43,24 @@ export default class App extends Component {
             this.setState({ currentSource: s })
           }
         })
-        this.setState({ sourceKey: sourceTitle })
-        this.setState({ articleArray: data });
+        this.setState({
+          sourceKey: sourceTitle,
+          articleArray: data
+         })
       }.bind(this)
     })
   }
 
   render() {
     return (
-      <div>
-        <PageHeader>
-          <center>DATA FEED NEWS</center><br />
-          <center><img src={this.state.currentSource.logoUrl}/></center>
-        </PageHeader><br />
-        <DropdownBar
-          categories={this.state.categories}
-          sourceArray={this.state.sourceArray}
-          handleClick={this.handleClick}
-        />
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" justified>
-          <Tab eventKey={1} title="Carousel">
-            <ArticleCarousel
-              articleArray={this.state.articleArray}
-            />
-          </Tab>
-          <Tab eventKey={2} title="List">
-            <ArticleThumbnails
-              articleArray={this.state.articleArray}
-            />
-          </Tab>
-        </Tabs>
-        <div dangerouslySetInnerHTML={this.createMarkup} />
-        Powered By: <a href="https://newsapi.org">News API</a>
-      </div>
+      <PageView
+        articleArray = {this.state.articleArray}
+        sourceArray = {this.state.sourceArray}
+        currentSource = {this.state.currentSource}
+        categories = {this.state.categories}
+        sourceKey = {this.state.sourceKey}
+        handleClick = {this.handleClick}
+      />
     )
   }
 
