@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col, Thumbnail } from 'react-bootstrap';
+import { Thumbnail } from 'react-bootstrap';
 
 const ArticleThumbnails = props => {
 

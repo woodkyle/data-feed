@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ArticleCarousel from './ArticleCarousel';
-import DropdownBar from './DropdownBar';
 import ArticleThumbnails from './ArticleThumbnails';
-import { PageHeader, Tab, Tabs } from 'react-bootstrap';
+import NavBar from './NavBar';
+import { Tab, Tabs, Grid } from 'react-bootstrap';
+import Iframe from 'react-iframe';
 
 export default class PageView extends Component {
 
@@ -11,30 +12,33 @@ export default class PageView extends Component {
   }
 
   render(){
+
     return (
       <div>
-        <PageHeader>
-          <center>DATA FEED NEWS</center><br />
-          <center><img src={this.props.currentSource.logoUrl}/></center>
-        </PageHeader><br />
-        <DropdownBar
+        <NavBar
           categories={this.props.categories}
           sourceArray={this.props.sourceArray}
           handleClick={this.props.handleClick}
+          currentSourceUrl={this.props.currentSource.logoUrl}
         />
         <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" justified>
           <Tab eventKey={1} title="Carousel">
-            <ArticleCarousel
-              articleArray={this.props.articleArray}
-            />
+            <Grid>
+              <ArticleCarousel
+                articleArray={this.props.articleArray}
+                currentSourceUrl={this.props.currentSource.logoUrl}
+              />
+            </Grid>
           </Tab>
           <Tab eventKey={2} title="List">
-            <ArticleThumbnails
-              articleArray={this.props.articleArray}
-            />
+            <Grid>
+              <ArticleThumbnails
+                articleArray={this.props.articleArray}
+              />
+            </Grid>
           </Tab>
-        </Tabs>
-        Powered By: <a href="https://newsapi.org">News API</a>
+        </Tabs><br />
+        Powered By: <a href="https://newsapi.org" target="_blank">News API</a>
       </div>
     )
   }
