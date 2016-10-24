@@ -3,7 +3,6 @@ import ArticleCarousel from './ArticleCarousel';
 import DropdownBar from './DropdownBar';
 import ArticleThumbnails from './ArticleThumbnails';
 import { PageHeader, Tab, Tabs } from 'react-bootstrap';
-import Iframe from 'react-iframe';
 
 export default class App extends Component {
 
@@ -75,9 +74,6 @@ export default class App extends Component {
             <ArticleThumbnails
               articleArray={this.state.articleArray}
             />
-          </Tab>
-          <Tab eventKey={3} title="Source Home Page">
-            <Iframe url={this.state.currentSource.url}/>
           </Tab>
         </Tabs>
         <div dangerouslySetInnerHTML={this.createMarkup} />
