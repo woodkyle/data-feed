@@ -1,10 +1,10 @@
 import React from 'react';
-import { Carousel, Grid } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 const ArticleCarousel = props => {
   let articles = props.articleArray.map(article => {
-    if (article.urlToImage == null){
-      article.urlToImage = props.currentSourceUrl;
+    if (article.urlToImage == null) {
+      article.urlToImage = props.currentSourceLogoUrl;
     }
     return(
       <Carousel.Item>
@@ -19,6 +19,7 @@ const ArticleCarousel = props => {
 
   return(
     <div>
+      <br />
       <Carousel>
         {articles}
       </Carousel>

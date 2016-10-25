@@ -19,14 +19,14 @@ export default class PageView extends Component {
           categories={this.props.categories}
           sourceArray={this.props.sourceArray}
           handleClick={this.props.handleClick}
-          currentSourceUrl={this.props.currentSource.logoUrl}
+          currentSourceLogoUrl={this.props.currentSource.logoUrl}
         />
         <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" justified>
           <Tab eventKey={1} title="Carousel">
             <Grid>
               <ArticleCarousel
                 articleArray={this.props.articleArray}
-                currentSourceUrl={this.props.currentSource.logoUrl}
+                currentSourceLogoUrl={this.props.currentSource.logoUrl}
               />
             </Grid>
           </Tab>
@@ -34,6 +34,7 @@ export default class PageView extends Component {
             <Grid>
               <ArticleThumbnails
                 articleArray={this.props.articleArray}
+                currentSourceLogoUrl={this.props.currentSource.logoUrl}
               />
             </Grid>
           </Tab>
