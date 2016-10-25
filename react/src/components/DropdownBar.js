@@ -20,7 +20,7 @@ const DropdownBar = props => {
       }
     })
     return(
-      <DropdownButton title={category} id="bg-justified-dropdown">
+      <DropdownButton title={category} bsStyle='primary' id="bg-justified-dropdown">
         {menuItems}
       </DropdownButton>
     )

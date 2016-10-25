@@ -3,7 +3,6 @@ class Api::SourcesController < ApiController
   # business, entertainment, gaming, general, music, science-and-nature, sport, technology
 
   def index
-
     @categories = [
       "Business",
       "Entertainment",
@@ -14,12 +13,31 @@ class Api::SourcesController < ApiController
       "Sports",
       "Tech"
     ]
+
+    @sources = Source.all
+    @pinned = Article.all
+    @data = {
+      "categories" => @categories,
+      "sources" => @sources,
+      "pinned" => @pinned
+    }
     respond_to do |format|
       format.json do
-        render json: @categories
+        render json: @data
       end
     end
+  end
 
+  def create
+    @source = params[:sourceTitle]
+    @key = ENV["NEWS_API_KEY"]
+    @url = "https://newsapi.org/v1/articles?source=" + @source + "&apiKey=" + "#{@key}"
+    @articles = HTTParty.get(@url)["articles"]
+    respond_to do |format|
+      format.json do
+        render json: @articles
+      end
+    end
   end
 
 end

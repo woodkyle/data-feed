@@ -8,34 +8,33 @@ export default class App extends Component {
     this.state = {
       articleArray: [],
       sourceArray: [],
+      pinnedArticles: [],
       categories: [],
       currentSource: "",
       sourceKey: ""
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handlePin = this.handlePin.bind(this);
   }
 
   componentDidMount() {
     $.ajax({
       method: 'GET',
-      url: 'api/articles'
-    })
-    .done(data => {
-      this.setState({ sourceArray: data })
-    });
-    $.ajax({
-      method: 'GET',
       url: 'api/sources'
     })
     .done(data => {
-      this.setState({ categories: data })
-    });
+      this.setState({
+        sourceArray: data.sources,
+        categories: data.categories,
+        pinnedArticles: data.pinned.reverse()
+      })
+    })
   }
 
   handleClick(sourceTitle) {
     $.ajax({
       method: 'POST',
-      url: 'api/articles',
+      url: 'api/sources',
       data: {sourceTitle},
       success: function(data) {
         this.state.sourceArray.map( s => {
@@ -51,15 +50,28 @@ export default class App extends Component {
     })
   }
 
+  handlePin(sourceArticle) {
+    $.ajax({
+      method: 'POST',
+      url: 'api/articles',
+      data: sourceArticle,
+      success: function(data) {
+        this.setState({ pinnedArticles: data.reverse() })
+      }.bind(this)
+    })
+  }
+
   render() {
     return (
       <PageView
         articleArray = {this.state.articleArray}
+        pinnedArticles = {this.state.pinnedArticles}
         sourceArray = {this.state.sourceArray}
         currentSource = {this.state.currentSource}
         categories = {this.state.categories}
         sourceKey = {this.state.sourceKey}
         handleClick = {this.handleClick}
+        handlePin = {this.handlePin}
       />
     )
   }
