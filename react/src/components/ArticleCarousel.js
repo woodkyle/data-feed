@@ -9,10 +9,6 @@ const ArticleCarousel = props => {
     return(
       <Carousel.Item>
         <img src={article.urlToImage} width={1910} height={1000} />
-        <Carousel.Caption>
-          <a href={article.url} target="_blank"><h3>{article.title}</h3></a>
-          <p>{article.description}</p>
-        </Carousel.Caption>
       </Carousel.Item>
     )
   })
