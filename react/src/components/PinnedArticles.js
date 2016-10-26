@@ -4,12 +4,6 @@ import { Thumbnail, Grid, Row, Col, Button } from 'react-bootstrap';
 const PinnedArticles = props => {
 
   let articles = props.pinnedArticles.map(article => {
-    if (article.urlToImage == null){
-      article.urlToImage = props.currentSourceLogoUrl;
-    }
-    if (article.author == null){
-      article.author = "Not Available";
-    }
     return (
       <Thumbnail>
         <Grid>
