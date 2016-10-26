@@ -29,7 +29,6 @@ export default class App extends Component {
         pinnedArticles: data.pinned.reverse()
       })
     })
-    this.handleClick("cnn");
   }
 
   handleClick(sourceTitle) {
