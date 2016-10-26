@@ -22,7 +22,7 @@ export default class PageView extends Component {
           handleClick={this.props.handleClick}
           currentSourceLogoUrl={this.props.currentSource.logoUrl}
         />
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" justified>
+        <Tabs defaultActiveKey={1} justified>
           <Tab eventKey={1} title="Article List">
             <Grid>
               <ArticleThumbnails
