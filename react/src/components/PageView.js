@@ -32,15 +32,14 @@ export default class PageView extends Component {
               />
             </Grid>
           </Tab>
-          <Tab eventKey={2} title="Top Photos">
+          <Tab eventKey={2} title="Trending Photos">
             <Grid>
               <ArticleCarousel
-                articleArray={this.props.articleArray}
+                pinnedArticles={this.props.pinnedArticles}
                 currentSourceLogoUrl={this.props.currentSource.logoUrl}
               />
             </Grid>
           </Tab>
-
           <Tab eventKey={3} title="Trending Articles">
             <Grid>
               <PinnedArticles

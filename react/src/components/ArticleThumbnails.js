@@ -20,7 +20,7 @@ const ArticleThumbnails = props => {
               <p>{article.description}</p>
               <p>Author: {article.author}</p>
               <Button bsStyle="primary" bsSize="small" href={article.url} target="_blank">Source Article</Button>
-              <Button bsStyle="primary" bsSize="small" onClick={handlePin}>Like!</Button>
+              <Button bsStyle="primary" bsSize="small" onClick={handlePin}>Like</Button>
             </Col>
             <Col xs={6} md={4}>
               <img src={article.urlToImage} height={150} width={250} /><br />
