@@ -1,5 +1,5 @@
 import React from 'react';
-import { Thumbnail, Grid, Row, Col, Button } from 'react-bootstrap';
+import { Thumbnail, Grid, Row, Col, Button, Fade } from 'react-bootstrap';
 
 const ArticleThumbnails = props => {
 
@@ -15,7 +15,6 @@ const ArticleThumbnails = props => {
       let handlePin = () => props.handlePin(article)
       return (
         <Thumbnail>
-          <Grid>
             <Row>
               <Col xs={12} md={8}>
                 <h3>{article.title}</h3>
@@ -28,16 +27,18 @@ const ArticleThumbnails = props => {
                 <img src={article.urlToImage} height={150} width={250} /><br />
               </Col>
             </Row>
-          </Grid>
         </Thumbnail>
       )
     })
 
     return(
-      <div>
-        <br />
-        {articles}
-      </div>
+      <Fade in={true}>
+        <div>
+          <Grid>
+              {articles}
+          </Grid>
+        </div>
+      </Fade>
     )
   }else {
     return (

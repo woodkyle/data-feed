@@ -1,5 +1,17 @@
 class Api::ArticlesController < ApiController
 
+  def index
+    @data={
+      "client" => ENV["AUTH_CLIENT_ID"],
+      "domain" => ENV["AUTH_DOMAIN"]
+    }
+    respond_to do |format|
+      format.json do
+        render json: @data
+      end
+    end
+  end
+
   def create
     @article = Article.create(article_params)
     @articles = Article.all

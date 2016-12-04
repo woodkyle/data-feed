@@ -1,7 +1,5 @@
 class Api::SourcesController < ApiController
 
-  # business, entertainment, gaming, general, music, science-and-nature, sport, technology
-
   def index
     @categories = [
       "Business",

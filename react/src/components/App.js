@@ -11,7 +11,7 @@ export default class App extends Component {
       pinnedArticles: [],
       categories: [],
       currentSource: "",
-      sourceKey: ""
+      sourceKey: "",
     };
     this.handleClick = this.handleClick.bind(this);
     this.handlePin = this.handlePin.bind(this);
@@ -63,16 +63,18 @@ export default class App extends Component {
 
   render() {
     return (
-      <PageView
-        articleArray = {this.state.articleArray}
-        pinnedArticles = {this.state.pinnedArticles}
-        sourceArray = {this.state.sourceArray}
-        currentSource = {this.state.currentSource}
-        categories = {this.state.categories}
-        sourceKey = {this.state.sourceKey}
-        handleClick = {this.handleClick}
-        handlePin = {this.handlePin}
-      />
+      <div>
+        <PageView
+          articleArray = {this.state.articleArray}
+          pinnedArticles = {this.state.pinnedArticles}
+          sourceArray = {this.state.sourceArray}
+          currentSource = {this.state.currentSource}
+          categories = {this.state.categories}
+          sourceKey = {this.state.sourceKey}
+          handleClick = {this.handleClick}
+          handlePin = {this.handlePin}
+        />
+      </div>
     )
   }
 

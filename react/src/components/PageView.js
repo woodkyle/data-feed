@@ -4,7 +4,7 @@ import ArticleThumbnails from './ArticleThumbnails';
 import NavBar from './NavBar';
 import { Tab, Tabs, Grid } from 'react-bootstrap';
 import Iframe from 'react-iframe';
-import PinnedArticles from './PinnedArticles'
+import PinnedArticles from './PinnedArticles';
 
 export default class PageView extends Component {
 
@@ -21,6 +21,8 @@ export default class PageView extends Component {
           sourceArray={this.props.sourceArray}
           handleClick={this.props.handleClick}
           currentSourceLogoUrl={this.props.currentSource.logoUrl}
+          client={this.props.authClient}
+          domain={this.props.authDomain}
         />
         <Tabs defaultActiveKey={1} justified>
           <Tab eventKey={1} title="Article List">
